@@ -73,7 +73,7 @@
                 </svg>
                 <span>Barang Masuk</span>
             </a>
-            <a href="#"
+            <a href="{{ route('dashboard.stock-out.index') }}"
                 class="flex items-center space-x-3 px-4 py-2 text-gray-200 text-sm font-semibold rounded-md hover:bg-white/10 {{ Route::is('dashboard.stock-out.*') ? 'bg-white/10 text-white' : '' }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-mailbox2-flag" viewBox="0 0 16 16">

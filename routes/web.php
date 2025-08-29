@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\EmployeeController as DashboardEmployeeController;
 use App\Http\Controllers\Dashboard\ItemController as DashboardItemController;
 use App\Http\Controllers\Dashboard\StockInController as DashboardStockInController;
+use App\Http\Controllers\Dashboard\StockOutController as DashboardStockOutController;
 
 Route::middleware('guest')->group(function () {
     // Login
@@ -39,4 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/barang-masuk', [DashboardStockInController::class, 'index'])->name('dashboard.stock-in.index');
     Route::post('/dashboard/barang-masuk/tambah', [DashboardStockInController::class, 'store'])->middleware('throttle:10,5')->name('dashboard.stock-in.store');
     Route::delete('/dashboard/barang-masuk/{id}/hapus', [DashboardStockInController::class, 'destroy'])->middleware('throttle:10,5')->name('dashboard.stock-in.destroy');
+
+    // Dashboard Barang Keluar
+    Route::get('/dashboard/barang-keluar', [DashboardStockOutController::class, 'index'])->name('dashboard.stock-out.index');
+    Route::post('/dashboard/barang-keluar/tambah', [DashboardStockOutController::class, 'store'])->middleware('throttle:10,5')->name('dashboard.stock-out.store');
+    Route::delete('/dashboard/barang-keluar/{id}/hapus', [DashboardStockOutController::class, 'destroy'])->middleware('throttle:10,5')->name('dashboard.stock-out.destroy');
 });
