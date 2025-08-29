@@ -27,4 +27,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/pegawai/tambah', [DashboardEmployeeController::class, 'store'])->middleware('throttle:10,5')->name('dashboard.employee.store');
     Route::put('/dashboard/pegawai/{nip}/ubah', [DashboardEmployeeController::class, 'update'])->middleware('throttle:10,5')->name('dashboard.employee.update');
     Route::delete('/dashboard/pegawai/{nip}/hapus', [DashboardEmployeeController::class, 'destroy'])->middleware('throttle:10,5')->name('dashboard.employee.destroy');
+
+    // Dashboard Data Barang
+    Route::get('/dashboard/data-barang', [DashboardItemController::class, 'index'])->name('dashboard.item.index');
+    Route::post('/dashboard/data-barang/tambah', [DashboardItemController::class, 'store'])->middleware('throttle:10,5')->name('dashboard.item.store');
+    Route::put('/dashboard/data-barang/{sku}/ubah', [DashboardItemController::class, 'update'])->middleware('throttle:10,5')->name('dashboard.item.update');
+    Route::delete('/dashboard/data-barang/{sku}/hapus', [DashboardItemController::class, 'destroy'])->middleware('throttle:10,5')->name('dashboard.item.destroy');
 });
